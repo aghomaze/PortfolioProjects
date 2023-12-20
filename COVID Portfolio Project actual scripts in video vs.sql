@@ -16,7 +16,6 @@
 Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 */
 
-
 -- Looking at the Total Cases vs Total Deaths
 -- Shows likelikehood of dying, if you contract Covid in your contry
 
@@ -33,7 +32,6 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --Where location like '%Cana%'
 --Order by 1,2
 
-
 -- Looking at Countries with Highest Infection Rate compared to Population
 
 --Select location, population, MAX(total_cases) AS HighestInfectionCount,  MAX((total_cases/population))*100 as MaximumPopulationInfected
@@ -41,7 +39,6 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --Group by location, population
 ---- Order by desc gives the highest number first. 
 --Order by MaximumPopulationInfected desc
-
 
 -- Showing Countries with Highest Death Count per Population
 
@@ -73,14 +70,11 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --from PortfolioProject..CovidDeaths
 --where continent is not null
 
-
 --Select location, Sum(new_cases) as newCases
 --From PortfolioProject..CovidDeaths
 --where continent is not null
 --Group by location
 --Order by 1, 2
-
-
 
 -- Looking at Total population vs Vaccinations
 
@@ -112,8 +106,6 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --where dea.continent is not null
 --order by 2, 3
 
-
-
 ---- USE CTE
 
 --With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
@@ -134,7 +126,6 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --From PopvsVac
 
 ---- TEMP TABLE 
-
 --DROP Table if exists #PercentPopulationVaccinated
 --Create Table #PercentPopulationVaccinated
 
@@ -162,7 +153,6 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --select *, (RollingPeopleVaccinated/Population)*100
 --FROM #PercentPopulationVaccinated
 
-
 ---- GLOBAL NUMBERS
 
 --Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast
@@ -181,12 +171,10 @@ Order by 1, 2: where 1 is the Location column and 2 is the Date column.
 --Group by continent
 --order by TotalDeathCount desc
 
-
 --Select *,  (RollingPeopleVaccinated/Population)*100
 --From #PercentPopulationVaccinated
 
 -- Creating View to store data for later visualizations 
-
 --Create Views PercentPopulationVaccinated as
 --Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, 
 --SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, 
