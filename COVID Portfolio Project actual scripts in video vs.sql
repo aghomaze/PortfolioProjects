@@ -107,7 +107,6 @@ Where dea.continent is not null
 Order by 2, 3
 
 -- USE CTE
-
 With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
 as 
 (
@@ -154,7 +153,6 @@ Select *, (RollingPeopleVaccinated/Population)*100
 FROM #PercentPopulationVaccinated
 
 -- GLOBAL NUMBERS
-
 Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast
 (new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
 
